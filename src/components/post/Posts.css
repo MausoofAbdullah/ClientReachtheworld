@@ -1,0 +1,30 @@
+.Posts{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: var(--cardColor);
+    border-radius: 1rem;
+    gap: 1rem;
+}
+.postmanImage>img{
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+}
+.Posts>img:nth-of-type(1){
+    width: 100%;
+    max-height: 27rem;
+    object-fit: cover;
+    border-radius: 0.5rem;
+
+}
+
+.postsReact{
+    display: flex;
+    align-items: flex-start;
+    gap:1rem
+}
+
+.postmanImage{
+    display: flex;
+}

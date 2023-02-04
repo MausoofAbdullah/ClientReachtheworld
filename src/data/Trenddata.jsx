@@ -1,0 +1,22 @@
+export const Trenddata =[
+    {
+        name:"Minicons",
+        shares:97
+    },
+    {
+        name:"Minicons",
+        shares:97
+    },
+    {
+        name:"Minicons",
+        shares:97
+    },
+    {
+        name:"Minicons",
+        shares:97
+    },
+    {
+        name:"Minicons",
+        shares:97
+    }
+]
