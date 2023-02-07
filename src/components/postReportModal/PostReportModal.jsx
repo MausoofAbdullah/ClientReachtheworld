@@ -38,7 +38,7 @@ const PostDeleteModal = ({modalOpen,setModalOpen,postId,currentUser}) => {
       
       //console.log(obj,"object")
       try{
-        const response= await axios.post(`process.env.REACT_API_CALL/post/${postId}/report-post`,obj)
+        const response= await axios.post(`https://reachtheworld.tech/post/${postId}/report-post`,obj)
       //  console.log(response,'response');
         
         if(response.status){
