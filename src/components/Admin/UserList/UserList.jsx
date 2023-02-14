@@ -9,22 +9,27 @@ const UserList = () => {
 
 
     const [user,setUser]=useState([])
+    const [nUser,setNuser]=useState()
+    const fetchUsersList=async()=>{
+      const  userData =await adminGettingUser()
+      console.log(userData,"new users")
+     // console.log(user.formattedFriends,"userlist")
+    if(userData.status===200){
+      let aUser=userData.data.users
+      aUser=aUser.filter((user)=>user.isAdmin===false)
+
+
+      setUser(aUser)
+    }else{
+      alert('something went wrong')
+    }
+
+      
+      
+  }
     
     useEffect(()=>{
-        const fetchUsersList=async()=>{
-            const  userData =await adminGettingUser()
-            console.log(userData,"new users")
-           // console.log(user.formattedFriends,"userlist")
-          if(userData.status===200){
-
-            setUser(userData.data.users)
-          }else{
-            alert('something went wrong')
-          }
-
-            
-            
-        }
+        
         fetchUsersList()
     },[])
   console.log(user,"fetchuser")
@@ -34,16 +39,18 @@ const UserList = () => {
   const blockUser=async(userId)=>{
     const blockedUser=await adminBlockUser(userId)
     console.log(blockUser,"1");
-    if (blockedUser.data.blockstatus === true){
-      setUser((user) => {
-        user.map((val) => {
-          if (val._id === userId) {
-            return { ...val, Active: false }
-          }
-          return val
-        })
-      })
-    }
+    // if (blockedUser.data.blockstatus === true){
+    //   setUser((user) => {
+    //     user.map((val) => {
+    //       if (val._id === userId) {
+    //         return { ...val, Active: false }
+    //       }
+    //       return val
+    //     })
+    //   })
+    // }
+    fetchUsersList()
+
     console.log(blockedUser,"blockeduser")
     // if(blockedUser.data.success){
     //   console.log("user blocked")
@@ -54,16 +61,19 @@ const UserList = () => {
   const unBlockUser=async(userId)=>{
    const unblockedUser= await adminUnBlockUser(userId)
     console.log(unblockedUser,"unblockUser")
-    if (unblockedUser.data.blockstatus === false){
-      setUser((user) => {
-        user.map((val) => {
-          if (val._id === userId) {
-            return { ...val, Active: true }
-          }
-          return val
-        })
-      })
-    }
+    // if (unblockedUser.data.blockstatus === false){
+    //   setUser((user) => {
+    //     user.map((val) => {
+    //       if (val._id === userId) {
+    //         return { ...val, Active: true }
+    //       }
+    //       return val
+    //     })
+    //   })
+    // }
+
+    fetchUsersList()
+    console.log(user,"user state");
   }
 
   
@@ -73,46 +83,40 @@ const UserList = () => {
     <React.Fragment>
       <div className="userTable-main">
         <div className="usersList">
-            <Table striped bordered hover >
+            <Table striped bordered hover style={{width:'100%'}} >
             <thead>
                     <tr>
                         <th>#</th>
-                        <th></th>
+                        
                         <th>Name</th>
-                        <th></th>
-                        <th></th> 
-                        <th></th> 
+                        
 
                         <th>Email</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        
                         <th>Status</th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
-                        <th>Action</th>
+                          <th >Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style={{textAlign:'center'}}>
 
                     { user?.map((obj,index,id)=>{
-                      if(!obj.isAdmin){
+                      
+                      
+                        // console.log(user,"objnew user")
                         return (
 
                 <tr key={id} >
                                 <td>{index+1}</td>
-                                <td></td>
+                                
                                 <td>{obj.firstname}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                              
                                 <td>{obj.username}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                
                                 <td> {obj.Active?'Active':'Blocked'}</td>
                                 <td></td>
                                 <td></td>
@@ -129,13 +133,14 @@ const UserList = () => {
                                   {/* <button className={obj.Active? "null" : "unblockbutton" }>Unblock</button> */}
 
                             </tr>
-                        )}
+                        )
                     })}
                 </tbody>
             </Table>
         </div>
       </div>
     </React.Fragment>
+
   )
 }
 

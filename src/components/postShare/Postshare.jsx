@@ -69,7 +69,7 @@ const Postshare = () => {
       
       const data = new FormData();
       const filename = Date.now() + image.name;
-      const reader = new FileReader();
+      // const reader = new FileReader();
       // if (!imageFile.name.match(/\.(jpg|jpeg|png|gif)$/)){
       //   setMsssg("enter valid file")
       // }
@@ -78,8 +78,8 @@ const Postshare = () => {
       data.append("name", filename);
       data.append("file", image);
       newPost.image = filename;
-      // console.log(newPost,'fileeeee');
-      // console.log(data, "yes");
+       console.log(newPost,'fileeeee');
+      console.log(data, "yes");
       try {
         dispatch(uploadImage(data));
       

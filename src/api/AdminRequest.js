@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const API=axios.create({baseURL: "https://reachtheworld.tech"})
+//const API=axios.create({baseURL: process.env.REACT_API_CALL})
 
 export const adminGettingUser=()=>API.get("/admin/user-list")
 export const adminBlockUser=(userId)=>API.post("/admin/block-user",{userId:userId})

@@ -27,6 +27,7 @@ const Chat = () => {
   const [chats, setChats] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [newUser,setNewUser] = useState(null)
+  const [messages, setMessages] = useState([]);
   
   const [onlineUsers, setOnlineUsers] = useState([]);
   const [sendMessage, setSendMessage] = useState(null);
@@ -43,7 +44,8 @@ const Chat = () => {
 
   
   useEffect(() => {
-      socket.current = io("https://socket.reachtheworld.tech");
+      socket.current = io("http://localhost:8800");
+     // socket.current = io("https://socket.reachtheworld.tech");
       console.log("conne")
       socket.current.emit("new-user-add", user._id);
       socket.current.on("get-users", (users) => {
@@ -67,13 +69,19 @@ const Chat = () => {
     useEffect(() => {
       socket.current.on("receive-message", (data) => {
         setReceiveMessage(data);
+        // setMessages([...messages, data]);
       });
     }, []);
+    // useEffect(() => {
+    //   setMessages(messages.sort((a, b) => a.timestamp - b.timestamp));
+    // }, [messages]);
+    
     
   useEffect(() => {
     const getChats = async () => {
       try {
         const { data } = await userChats(user._id);
+       
         setChats(data);
       } catch (error) {
         console.log(error);
@@ -96,6 +104,7 @@ const Chat = () => {
  },[newUserfromProfileMessageButton,chats])
 
   const checkOnlineStatus=(chat)=>{
+   
     const chatMember=chat.members.find((member)=>member!==user._id);
     const online= onlineUsers.find((user)=>user.userId===chatMember)
     return online?true:false;

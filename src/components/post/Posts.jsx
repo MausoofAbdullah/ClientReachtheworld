@@ -53,7 +53,7 @@ const Posts = ({data}) => {
   useEffect(() => {
     const fetchUser = async () => {
        const postedUser = await getUser(data.userId)
-      // console.log(postedUser,"who is he")
+       console.log(postedUser,"who is he")
        setPostMan(postedUser.data.firstname + " " + postedUser.data.lastname)
        setPostUsername(postedUser.data.username)
        
