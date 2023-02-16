@@ -57,9 +57,9 @@ console.log(socket,"what is sicket")
            </Link>
             <UilSetting/>
             
-
-            <p className='counter'>2</p>
-           <img src={Noti} alt="" className="" />
+{/* 
+            <p className='counter'></p>
+           <img src={Noti} alt="" className="" /> */}
 
             {open &&(
             <div className="notifications">{notifications.map((n)=>{
