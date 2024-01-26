@@ -14,7 +14,7 @@ const OtpVerification = () => {
  const[otpThree,setOtpThree] = useState('')
  const[otpFour,setOtpFour] = useState('')
  const [otp,setOtp] = useState('')
- const [seconds, setSeconds] = useState(10);
+ const [seconds, setSeconds] = useState(30);
  const [expire,setExpire]=useState(false)
  const [resendot,setResendot]=useState(false)
  const [resendCount, setResendCount] = useState(0);
@@ -60,7 +60,7 @@ console.log(location?.state?.registerationData,'heiksdfg');
     
     useEffect(() => {
         if (resendot) {
-          setSeconds(10);
+          setSeconds(30);
           setExpire(false);
           setResendot(false);
           setResendCount(resendCount + 1);

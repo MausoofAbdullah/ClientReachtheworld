@@ -9,7 +9,8 @@ import { getUser } from "../../actions/userAction";
 const Profilecard = ({ location, person }) => {
   const { user } = useSelector((state) => state.authReducer.authData);
   const posts = useSelector((state) => state.postReducer.posts);
-  const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+  // const serverPublic = process.env.REACT_APP_PUBLIC_FOLDER;
+  const serverPublic="http://localhost:5000/images/"
   const dispatch = useDispatch();
   // console.log(user,"card")
   const setUser = () => {

@@ -14,7 +14,8 @@ const User = ({person,followercount}) => {
     // console.log(user,"what is there in user")
     // console.log(user.followers.length,"how many")
     const [following,setFollowing]=useState(person.followers.includes(user._id))
-  const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
+//   const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
+const serverPublic="http://localhost:5000/images/"
   const handleFollow=()=>{
         following?
         dispatch(unfollowUser(person._id,user)):

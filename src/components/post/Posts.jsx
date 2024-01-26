@@ -31,7 +31,8 @@ const Posts = ({data}) => {
    //console.log(data,"what is data for time")
 
  const dispatch=useDispatch()
- const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
+//  const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
+const serverPublic="http://localhost:5000/images/"
 
  const {user}=useSelector((state)=>state.authReducer.authData)
 
@@ -127,9 +128,13 @@ const Posts = ({data}) => {
   return (
     <div className='Posts'>
 <div  className='postmanImage'>
-<img src={process.env.REACT_APP_PUBLIC_FOLDER+postmanImage}   />
+{/* <img src={process.env.REACT_APP_PUBLIC_FOLDER+postmanImage}   /> */}
+<img src={serverPublic+postmanImage}   />
+
 <b><h3 style={{color:"firebrick"}}>{postMan} </h3></b> </div>
-  <img  src={data.image?process.env.REACT_APP_PUBLIC_FOLDER+data.image:""} alt="" className='' /> 
+  {/* <img  src={data.image?process.env.REACT_APP_PUBLIC_FOLDER+data.image:""} alt="" className='' />  */}
+  <img  src={data.image?serverPublic+data.image:""} alt="" className='' /> 
+
   <div className="detail">
      
 

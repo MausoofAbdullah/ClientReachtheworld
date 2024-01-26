@@ -1,8 +1,8 @@
 import axios from "axios"
 
-//const API= axios.create({baseURL:process.env.REACT_API_CALL})
-//const API= axios.create({baseURL:process.env.REACT_API_CALL})
-const API= axios.create({baseURL:"https://reachtheworld.tech"})  
+// const API= axios.create({baseURL:process.env.REACT_API_CALL})
+const API= axios.create({baseURL:process.env.REACT_API_CALL})
+// const API= axios.create({baseURL:"https://reachtheworld.tech"})  
 
 export const logIn=(FormData)=>API.post("/auth/login",FormData)
 export const signup=(FormData)=>API.post("/auth/register",FormData)
