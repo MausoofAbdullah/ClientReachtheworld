@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // const API= axios.create({baseURL:"https://reachtheworld.tech"})
-const API= axios.create({baseURL:process.env.REACT_API_CALL})
+const API= axios.create({baseURL:process.env.REACT_APP_API_CALL})
 
 
 export const userChats=(id)=>API.get(`/chat/${id}`)

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // const API= axios.create({baseURL:"https://reachtheworld.tech"})
-const API= axios.create({baseURL:process.env.REACT_API_CALL})
+const API= axios.create({baseURL:process.env.REACT_APP_API_CALL})
 
 API.interceptors.request.use((req) => {
     if (localStorage.getItem('profile')) {
