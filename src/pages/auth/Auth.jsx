@@ -71,8 +71,9 @@ const Auth = () => {
       setError("password length should be between 3 & 6")
      }
      else{
-      
+      console.log("som")
       const response=await signup(data)
+      console.log(response.data.message,"reresp")
       console.log(response, "letschaechk")
       navigate("/otpverification",{
         state:{

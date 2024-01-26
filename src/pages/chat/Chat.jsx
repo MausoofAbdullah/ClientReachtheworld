@@ -44,7 +44,7 @@ const Chat = () => {
 
   
   useEffect(() => {
-      socket.current = io("http://localhost:8800");
+      socket.current = io(process.env.REACT_APP_SOCKETURL);
      // socket.current = io("https://socket.reachtheworld.tech");
       console.log("conne")
       socket.current.emit("new-user-add", user._id);

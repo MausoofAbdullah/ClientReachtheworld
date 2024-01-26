@@ -71,7 +71,7 @@ const serverPublic="http://localhost:5000/images/"
 
 
  useEffect(()=>{
-   socket.current = io("http://localhost:8800")
+   socket.current = io(process.env.REACT_APP_SOCKETURL)
 
  },[])
  useEffect(()=>{

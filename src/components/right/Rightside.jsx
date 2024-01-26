@@ -25,7 +25,7 @@ console.log("anyting")
 console.log(socket,"what is sicket")
 
   useEffect(()=>{
-    socket.current = io("http://localhost:8800")
+    socket.current = io(process.env.REACT_APP_SOCKETURL)
 
   },[])
 
