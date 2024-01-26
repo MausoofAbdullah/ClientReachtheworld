@@ -151,7 +151,7 @@ useEffect(() => {
                     <input type="text" className='code' placeholder="0" min="0" max="9" onChange={(e)=>setOtpThree(e.target.value)}  required />
                     <input type="text" className='code' placeholder="0" min="0" max="9" onChange={(e)=>setOtpFour(e.target.value)}  required />
                 </div>:""}
-                {!expire||resendot?<p>Enter Otp you before 60seconds</p>:<p style={{color:"red"}}>your otp expired , pls resend otp to signup</p>}
+                {!expire||resendot?<p>Enter Otp you before 30seconds</p>:<p style={{color:"red"}}>your otp expired , pls resend otp to signup</p>}
                 
           {!expire||resendot?  <div >{seconds} seconds remaining</div>:""}
                 {!expire||resendot?<div>
@@ -179,5 +179,7 @@ useEffect(() => {
         </div>
     )
 }
+
+// sim?
 
 export default OtpVerification
