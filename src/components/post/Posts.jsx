@@ -31,8 +31,8 @@ const Posts = ({data}) => {
    //console.log(data,"what is data for time")
 
  const dispatch=useDispatch()
-//  const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
-const serverPublic="http://localhost:5000/images/"
+ const serverPublic=process.env.REACT_APP_PUBLIC_FOLDER
+// const serverPublic="http://localhost:5000/images/"
 
  const {user}=useSelector((state)=>state.authReducer.authData)
 

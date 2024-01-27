@@ -2,10 +2,10 @@ import React from "react";
 import "./Search.css";
 import useSearchUsers from "../../Hooks/useSearchUsers.js";
 import { Link } from "react-router-dom";
-// const serverImages = process.env.REACT_APP_PUBLIC_FOLDER;
-const serverImages="http://localhost:5000/images/"
-// const serverStatic = process.env.REACT_APP_PUBLIC_FOLDER;
-const serverStatic='http://localhost:5000/images/'
+const serverImages = process.env.REACT_APP_PUBLIC_FOLDER;
+// const serverImages="http://localhost:5000/images/"
+const serverStatic = process.env.REACT_APP_PUBLIC_FOLDER;
+// const serverStatic='http://localhost:5000/images/'
 
 
 const Search = ({ searchKey }) => {
