@@ -105,6 +105,7 @@ useEffect(() => {
        
        console.log(otp.length)
        console.log(typeof(otp));
+      
        dispatch(verifyotp(registerationDetails.userId,otp))
     //    resend otp
 
@@ -140,7 +141,7 @@ useEffect(() => {
                 
                 <div className='mySpan'>
                     <span>
-                        We emailed you the six digit code to person@gmail.com <br />
+                        We emailed you the six digit code to your emailId <br />
                         Enter the code below to confirm your email address
                     </span>
 

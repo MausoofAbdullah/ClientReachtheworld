@@ -29,7 +29,7 @@ console.log(data,"sssssssssss")
 // }
 
 export const verifyotp = (userId,otp) => async(dispatch) => {
-    console.log(otp,'ith authaction verify otp ane');
+   
     dispatch({type:"AUTH_START"})
     try {
         const {data} = await AuthApi.verifyotp(userId,otp)
@@ -37,7 +37,7 @@ export const verifyotp = (userId,otp) => async(dispatch) => {
         dispatch({type:"AUTH_SUCCESS", data: data})
         
     } catch (error) {
-        console.log(error,"erroe name");
+        toast.error(error.response.data.message);
         dispatch({type:"AUTH_FAIL"})
     }
 }

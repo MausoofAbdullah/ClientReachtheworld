@@ -6,6 +6,8 @@ import { useDispatch, useSelector} from "react-redux"
 import { logIn} from "../../actions/AuthAction";
 import { signup } from "../../api/Authrequest";
 import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
+
 
 // const Auth = () => {
 //   const [isSignup,setIsSignup]=useState(true)
@@ -72,14 +74,29 @@ const Auth = () => {
      }
      else{
       console.log("som")
-      const response=await signup(data)
-      console.log(response.data.message,"reresp")
-      console.log(response, "letschaechk")
-      navigate("/otpverification",{
-        state:{
-          registerationData: response.data.data
-        }
-       })
+      try {
+        
+        const response=await signup(data)
+        navigate("/otpverification",{
+          state:{
+            registerationData: response.data.data
+          }
+         })
+      } catch (error) {
+        console.log(error.response.data.message,"errrrrrrrrrrrr")
+        toast.error(error.response.data.message)
+        // setTimeout(()=>{
+        //   setError("")
+        // },3000)
+        setData({
+          firstname: "",
+          username: "",
+          lastname: "",
+          password: "",
+        })
+      }
+
+     
      }
     }else{
       setError('')
@@ -100,7 +117,7 @@ const Auth = () => {
    
    
   };
-  
+ 
 }
 
   const resetForm = () => {
